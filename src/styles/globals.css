@@ -1,0 +1,592 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter+Tight:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basirion Design System - Clean Minimalism */
+
+@layer base {
+  :root {
+    /* Professional Neutral Palette - Inspired by Linear/Vercel */
+    --basirion-white: 0 0% 100%;
+    --basirion-off-white: 0 0% 98.5%;
+    --basirion-gray-50: 0 0% 97%;
+    --basirion-gray-100: 0 0% 95%;
+    --basirion-gray-200: 0 0% 90%;
+    --basirion-gray-300: 0 0% 83%;
+    --basirion-gray-400: 0 0% 64%;
+    --basirion-gray-500: 0 0% 45%;
+    --basirion-gray-600: 0 0% 32%;
+    --basirion-gray-700: 0 0% 25%;
+    --basirion-gray-800: 0 0% 15%;
+    --basirion-gray-900: 0 0% 10%;
+
+    /* 🔥 FIERY THEME - Modern & Attractive */
+    /* Primary Fire Colors */
+    --fire-ember: 0 84% 60%; /* #FF3B30 - Ember Red */
+    --fire-flame: 25 100% 50%; /* #FF9500 - Flame Orange */
+    --fire-gold: 48 100% 50%; /* #FFCC00 - Sunset Gold */
+    --fire-magenta: 340 75% 60%; /* #FF2D55 - Deep Magenta */
+    --fire-purple: 280 65% 60%; /* #AF52DE - Volcanic Purple */
+    
+    /* Professional Primary - Fiery Gradient */
+    --basirion-primary: 0 84% 60%; /* Ember Red */
+    --basirion-primary-foreground: 0 0% 100%;
+    --basirion-primary-hover: 0 84% 55%;
+
+    /* 🔥 Fiery Gradient - Bold & Modern */
+    --basirion-accent-from: 0 84% 60%; /* Ember Red */
+    --basirion-accent-via: 25 100% 50%; /* Flame Orange */
+    --basirion-accent-to: 48 100% 50%; /* Sunset Gold */
+    
+    /* Alternative Gradient - Sunset */
+    --basirion-sunset-from: 280 65% 60%; /* Volcanic Purple */
+    --basirion-sunset-via: 340 75% 60%; /* Deep Magenta */
+    --basirion-sunset-to: 25 100% 50%; /* Flame Orange */
+    
+    /* Professional accent colors - Enhanced with fire */
+    --basirion-cyan: 195 85% 55%;
+    --basirion-purple: 280 65% 60%; /* Enhanced with fire purple */
+    --basirion-pink: 340 75% 60%; /* Enhanced with fire magenta */
+    --basirion-blue: 221 83% 53%;
+    --basirion-indigo: 250 85% 62%;
+    --basirion-amber: 48 100% 50%; /* New fire gold */
+    --basirion-orange: 25 100% 50%; /* New fire orange */
+    --basirion-red: 0 84% 60%; /* New fire red */
+
+    /* Typography */
+    --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-secondary: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* 🔥 Fiery Light Theme - Modern & Vibrant */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 0 84% 60%; /* Fire Ember Red */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 25 100% 97%; /* Very light orange tint */
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 0 84% 60%; /* Fire red ring */
+    --radius: 0.75rem; /* Slightly more rounded */
+  }
+
+  .dark {
+    /* 🔥 Fiery Dark Theme - Bold & Modern */
+    --background: 0 0% 8%; /* Deep charcoal */
+    --foreground: 0 0% 98%; /* Crystal white */
+    --card: 0 0% 12%; /* Slate */
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 84% 60%; /* Fire Ember Red - brighter in dark */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 18%; /* Ash gray */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 25 100% 15%; /* Dark orange tint */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 55%; /* Slightly darker red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%; /* Subtle border */
+    --input: 0 0% 18%;
+    --ring: 0 84% 60%; /* Fire red ring */
+  }
+
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-white;
+    color: hsl(var(--foreground));
+    background: hsl(var(--background));
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: hsl(var(--basirion-gray-900));
+  }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    line-height: 1.25;
+    color: hsl(var(--basirion-gray-900));
+  }
+}
+
+/* Basirion Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+/* Smooth hover transitions */
+.transition-basirion {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔥 Fiery Card Styles - Modern Glassmorphism */
+.basirion-card {
+  @apply bg-white dark:bg-[hsl(var(--card))] rounded-xl border border-basirion-gray-200 dark:border-[hsl(var(--border))] shadow-sm;
+  @apply p-6 md:p-8;
+  @apply transition-all duration-300;
+  @apply relative;
+  backdrop-filter: blur(10px);
+}
+
+.basirion-card:hover {
+  @apply shadow-xl dark:shadow-2xl;
+  @apply border-basirion-gray-300 dark:border-[hsl(var(--primary))/0.3];
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.04),
+              0 0 0 1px hsl(var(--basirion-accent-from) / 0.1);
+}
+
+.dark .basirion-card {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+}
+
+.dark .basirion-card:hover {
+  background: hsl(var(--card));
+  border-color: hsl(var(--primary) / 0.3);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.2),
+              0 0 20px hsl(var(--basirion-accent-from) / 0.2);
+}
+
+/* Glassmorphism variant */
+.basirion-card-glass {
+  @apply bg-white/80 dark:bg-[hsl(var(--card))/0.8] backdrop-blur-xl;
+  @apply border-white/20 dark:border-white/10;
+}
+
+/* 🔥 Fiery Button - Modern & Attractive */
+.basirion-button-primary {
+  background: linear-gradient(135deg, 
+    hsl(var(--basirion-accent-from)), 
+    hsl(var(--basirion-accent-via)),
+    hsl(var(--basirion-accent-to))
+  );
+  @apply text-white font-semibold;
+  @apply shadow-lg hover:shadow-xl;
+  @apply transition-all duration-300;
+  @apply relative overflow-hidden;
+  position: relative;
+}
+
+.basirion-button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.basirion-button-primary:hover::before {
+  left: 100%;
+}
+
+.basirion-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px hsl(var(--basirion-accent-from) / 0.4);
+}
+
+/* 🔥 Fiery gradient text - Bold & Modern */
+.gradient-text {
+  background: linear-gradient(135deg, 
+    hsl(var(--basirion-accent-from)), 
+    hsl(var(--basirion-accent-via)),
+    hsl(var(--basirion-accent-to))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @apply font-bold;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, 
+    hsl(var(--basirion-accent-from)), 
+    hsl(var(--basirion-accent-via)),
+    hsl(var(--basirion-accent-to))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Professional stat number */
+.stat-gradient {
+  color: hsl(var(--primary));
+  @apply font-bold;
+}
+
+.dark .stat-gradient {
+  color: hsl(var(--primary));
+}
+
+/* Vibrant color utilities */
+.text-basirion-primary {
+  color: hsl(var(--basirion-primary));
+}
+
+.dark .text-basirion-primary {
+  color: hsl(var(--primary));
+}
+
+/* 🔥 Fiery stat badges - Vibrant & Modern */
+.stat-badge-cyan {
+  @apply bg-cyan-50 dark:bg-cyan-950/30;
+  @apply border border-cyan-200 dark:border-cyan-500/30;
+  @apply text-cyan-700 dark:text-cyan-300;
+  @apply shadow-sm;
+}
+
+.stat-badge-purple {
+  @apply bg-purple-50 dark:bg-purple-950/30;
+  @apply border border-purple-200 dark:border-purple-500/30;
+  @apply text-purple-700 dark:text-purple-300;
+  @apply shadow-sm;
+}
+
+.stat-badge-pink {
+  @apply bg-pink-50 dark:bg-pink-950/30;
+  @apply border border-pink-200 dark:border-pink-500/30;
+  @apply text-pink-700 dark:text-pink-300;
+  @apply shadow-sm;
+}
+
+.stat-badge-indigo {
+  @apply bg-indigo-50 dark:bg-indigo-950/30;
+  @apply border border-indigo-200 dark:border-indigo-500/30;
+  @apply text-indigo-700 dark:text-indigo-300;
+  @apply shadow-sm;
+}
+
+/* New Fire-themed badges */
+.stat-badge-fire {
+  background: linear-gradient(135deg, 
+    hsl(var(--basirion-accent-from) / 0.1), 
+    hsl(var(--basirion-accent-via) / 0.1)
+  );
+  @apply border border-orange-200 dark:border-orange-500/30;
+  @apply text-orange-700 dark:text-orange-300;
+  @apply shadow-sm;
+}
+
+.stat-badge-ember {
+  background: linear-gradient(135deg, 
+    hsl(var(--fire-ember) / 0.1), 
+    hsl(var(--fire-flame) / 0.1)
+  );
+  @apply border border-red-200 dark:border-red-500/30;
+  @apply text-red-700 dark:text-red-300;
+  @apply shadow-sm;
+}
+
+.stat-badge-gold {
+  background: linear-gradient(135deg, 
+    hsl(var(--fire-gold) / 0.1), 
+    hsl(var(--fire-flame) / 0.1)
+  );
+  @apply border border-yellow-200 dark:border-yellow-500/30;
+  @apply text-yellow-700 dark:text-yellow-300;
+  @apply shadow-sm;
+}
+
+/* Improved section headers */
+.section-header {
+  @apply text-basirion-gray-900 dark:text-foreground font-bold;
+}
+
+.section-description {
+  @apply text-basirion-gray-600 dark:text-muted-foreground;
+}
+
+/* 🔥 Fiery Utilities */
+@layer utilities {
+  /* Prevent text overflow on mobile */
+  .break-words {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Responsive text sizing */
+  .text-responsive {
+    @apply text-sm sm:text-base;
+  }
+  
+  /* Responsive padding */
+  .p-responsive {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+  
+  /* Responsive gap */
+  .gap-responsive {
+    @apply gap-2 sm:gap-3 md:gap-4;
+  }
+  
+  /* Fire gradient background */
+  .bg-fire-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--basirion-accent-from)), 
+      hsl(var(--basirion-accent-via)),
+      hsl(var(--basirion-accent-to))
+    );
+  }
+  
+  /* Sunset gradient background */
+  .bg-sunset-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--basirion-sunset-from)), 
+      hsl(var(--basirion-sunset-via)),
+      hsl(var(--basirion-sunset-to))
+    );
+  }
+  
+  /* Fire glow effect */
+  .fire-glow {
+    box-shadow: 0 0 20px hsl(var(--basirion-accent-from) / 0.3),
+                0 0 40px hsl(var(--basirion-accent-via) / 0.2),
+                0 0 60px hsl(var(--basirion-accent-to) / 0.1);
+  }
+  
+  /* Fire glow on hover */
+  .hover-fire-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--basirion-accent-from) / 0.4),
+                0 0 60px hsl(var(--basirion-accent-via) / 0.3),
+                0 0 90px hsl(var(--basirion-accent-to) / 0.2);
+  }
+  
+  /* Animated fire gradient */
+  .animate-fire-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--basirion-accent-from)), 
+      hsl(var(--basirion-accent-via)),
+      hsl(var(--basirion-accent-to))
+    );
+    background-size: 200% 200%;
+    animation: fire-gradient-shift 3s ease infinite;
+  }
+  
+  @keyframes fire-gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* 🔥 Styled Record Button - CSS-only approach (non-intrusive) */
+  /* Target buttons inside the record button container */
+  .fiery-record-button-container button {
+    background: linear-gradient(135deg, 
+      hsl(var(--basirion-accent-from)), 
+      hsl(var(--basirion-accent-via)),
+      hsl(var(--basirion-accent-to))
+    ) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .fiery-record-button-container button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+    pointer-events: none;
+  }
+  
+  .fiery-record-button-container button:hover::before {
+    left: 100%;
+  }
+  
+  .fiery-record-button-container button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 20px 25px -5px hsl(var(--basirion-accent-from) / 0.4),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  }
+  
+  .fiery-record-button-container button:active {
+    transform: translateY(0) !important;
+  }
+  
+  .fiery-record-button-container button:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+  }
+  
+  .fiery-record-button-container button:focus-visible {
+    outline: 2px solid hsl(var(--basirion-accent-from)) !important;
+    outline-offset: 2px !important;
+  }
+  
+  /* Dark mode adjustments */
+  .dark .fiery-record-button-container button {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .dark .fiery-record-button-container button:hover {
+    box-shadow: 0 20px 25px -5px hsl(var(--basirion-accent-from) / 0.5),
+                0 10px 10px -5px rgba(0, 0, 0, 0.3),
+                0 0 20px hsl(var(--basirion-accent-from) / 0.3) !important;
+  }
+  
+  /* 🔥 Navigation Icons - Enhanced styling */
+  nav a[aria-label] {
+    position: relative;
+  }
+  
+  /* Mobile nav icon hover effect */
+  nav .group:hover svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+  
+  .dark nav .group:hover svg {
+    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.1));
+  }
+  
+  /* Active nav icon glow */
+  nav a[aria-label].fire-glow svg,
+  nav a.fire-glow svg {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  }
+  
+  /* Smooth icon transitions */
+  nav svg {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* 🔥 Basirion Input - Standardized input styling */
+  .basirion-input {
+    @apply bg-white dark:bg-[hsl(var(--card))];
+    @apply border border-basirion-gray-200 dark:border-[hsl(var(--border))];
+    @apply text-basirion-gray-900 dark:text-foreground;
+    @apply rounded-lg px-3 py-2;
+    @apply focus:ring-2 focus:ring-[hsl(var(--primary))];
+    @apply focus:border-[hsl(var(--primary))];
+    @apply transition-colors;
+  }
+  
+  .basirion-input::placeholder {
+    @apply text-basirion-gray-400 dark:text-muted-foreground/70;
+  }
+  
+  /* 🔥 Basirion Select - Standardized select styling */
+  .basirion-select {
+    @apply basirion-input;
+    @apply cursor-pointer;
+    @apply pr-8;
+    @apply appearance-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+  }
+  
+  /* 🔥 Basirion Link - Standardized link styling */
+  .basirion-link {
+    @apply text-basirion-primary dark:text-primary;
+    @apply hover:text-basirion-primary-hover;
+    @apply underline-offset-4 hover:underline;
+    @apply transition-colors;
+    @apply font-medium;
+  }
+  
+  .basirion-link:visited {
+    @apply text-basirion-primary dark:text-primary;
+  }
+  
+  /* 🔥 Enhanced Basirion Badge - Standardized badge variants */
+  .basirion-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+    @apply bg-basirion-gray-100 dark:bg-basirion-gray-800;
+    @apply text-basirion-gray-900 dark:text-foreground;
+    @apply border border-basirion-gray-200 dark:border-basirion-gray-700;
+  }
+  
+  .basirion-badge-primary {
+    @apply bg-[hsl(var(--primary))]/10 dark:bg-[hsl(var(--primary))]/20;
+    @apply text-basirion-primary dark:text-primary;
+    @apply border-[hsl(var(--primary))]/20 dark:border-[hsl(var(--primary))]/30;
+  }
+  
+  .basirion-badge-success {
+    @apply bg-green-50 dark:bg-green-950/30;
+    @apply text-green-700 dark:text-green-300;
+    @apply border-green-200 dark:border-green-500/30;
+  }
+  
+  .basirion-badge-warning {
+    @apply bg-yellow-50 dark:bg-yellow-950/30;
+    @apply text-yellow-700 dark:text-yellow-300;
+    @apply border-yellow-200 dark:border-yellow-500/30;
+  }
+  
+  .basirion-badge-error {
+    @apply bg-red-50 dark:bg-red-950/30;
+    @apply text-red-700 dark:text-red-300;
+    @apply border-red-200 dark:border-red-500/30;
+  }
+} 

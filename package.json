@@ -1,0 +1,39 @@
+{
+  "name": "basirion-design-system",
+  "version": "1.0.0",
+  "description": "Basirion Design System - A modern design system with fiery theme and professional neutral palette",
+  "main": "src/styles/globals.css",
+  "scripts": {
+    "build": "echo 'Design system CSS is ready to use'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "design-system",
+    "tailwind",
+    "css",
+    "react",
+    "typescript",
+    "basirion",
+    "ui",
+    "components"
+  ],
+  "author": "drquadeer",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drquadeer/basirion-design-system.git"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.0",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.400.0"
+  }
+}
+
