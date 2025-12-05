@@ -23,7 +23,7 @@ npm install basirion-design-system
 ### Using git
 
 ```bash
-git clone https://github.com/drquadeer/basirion-design-system.git
+git clone https://github.com/djangoengine/basirion-design-system.git
 cd basirion-design-system
 ```
 
@@ -227,7 +227,7 @@ drquadeer
 
 ## Links
 
-- GitHub: https://github.com/drquadeer/basirion-design-system
+- GitHub: https://github.com/djangoengine/basirion-design-system
 - Documentation: See `docs/` directory
 - Examples: See `examples/` directory
 

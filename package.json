@@ -21,7 +21,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/drquadeer/basirion-design-system.git"
+    "url": "https://github.com/djangoengine/basirion-design-system.git"
   },
   "peerDependencies": {
     "react": "^18.0.0",
